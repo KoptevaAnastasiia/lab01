@@ -29,7 +29,7 @@ def reflection_y():
     #
 
 
-def scaling ():
+def scaling_error ():
     ask = int(input("ask the num "));
 
     vector[:, 1] *= ask
@@ -47,13 +47,23 @@ def scaling ():
         i += 1
 
 
-def scaling_new (point):
+
+
+def scaling(heart, vector):
     ask = int(input("ask the num "));
-    f = np.array([
+    scaling_matrix = np.array([
         [ask, 0],
         [0, ask]
     ])
-    new_matrix = np.dot(point , f)
+    vector = np.dot(vector, scaling_matrix)
+    heart = np.dot(heart, scaling_matrix)
+    plt.plot(heart[:, 0], heart[:, 1], marker='o', label='Heart')
+    plt.plot(vector[:, 0], vector[:, 1], marker='o', label='Vector')
+    plt.grid(True)  # будує розмірність на графіку
+    plt.axis('equal')  # вирівнює
+    plt.show()
+
+
 
 
 
@@ -63,7 +73,6 @@ def rotation_of_the_object(points, angle):
         [np.cos(rad), -np.sin(rad)],
         [np.sin(rad ), np.cos(rad)]
     ])
-    return points.dot(rotation_matrix)
 
 
 def rotation_of_the_object_y (points, angle):
@@ -159,21 +168,8 @@ if ask == 3:
 
 
 if ask == 2:
-    scaling()
-    plt.plot(heart[:, 0], heart[:, 1], marker='o', label='Heart')
-    plt.plot(vector[:, 0], vector[:, 1], marker='o', label='Vector')
-    plt.grid(True)  # будує розмірність на графіку
-    plt.axis('equal')  # вирівнює
-    plt.show()
+    scaling(heart, vector)
 
-
-    result_h = scaling_new(heart)
-    result_v = scaling_new(vector)
-    plt.plot(heart[:, 0], heart[:, 1], marker='o', label='Heart')
-    plt.plot(vector[:, 0], vector[:, 1], marker='o', label='Vector')
-    plt.grid(True)  # будує розмірність на графіку
-    plt.axis('equal')  # вирівнює
-    plt.show()
 
 
 
@@ -199,5 +195,4 @@ if ask == 4:
         plt.axis('equal')  # вирівнює
         plt.legend()
         plt.show()
-
 
