@@ -47,6 +47,15 @@ def scaling ():
         i += 1
 
 
+def scaling_new (point):
+    ask = int(input("ask the num "));
+    f = np.array([
+        [ask, 0],
+        [0, ask]
+    ])
+    new_matrix = np.dot(point , f)
+
+
 
 def rotation_of_the_object(points, angle):
     rad = np.radians(angle)
@@ -156,6 +165,18 @@ if ask == 2:
     plt.grid(True)  # будує розмірність на графіку
     plt.axis('equal')  # вирівнює
     plt.show()
+
+
+    result_h = scaling_new(heart)
+    result_v = scaling_new(vector)
+    plt.plot(heart[:, 0], heart[:, 1], marker='o', label='Heart')
+    plt.plot(vector[:, 0], vector[:, 1], marker='o', label='Vector')
+    plt.grid(True)  # будує розмірність на графіку
+    plt.axis('equal')  # вирівнює
+    plt.show()
+
+
+
 
 if ask == 4:
     chose = input('x or y')
