@@ -73,6 +73,7 @@ def rotation_of_the_object(points, angle):
         [np.cos(rad), -np.sin(rad)],
         [np.sin(rad ), np.cos(rad)]
     ])
+    return np.dot(points, rotation_matrix)
 
 
 def rotation_of_the_object_y (points, angle):
@@ -195,4 +196,3 @@ if ask == 4:
         plt.axis('equal')  # вирівнює
         plt.legend()
         plt.show()
-
