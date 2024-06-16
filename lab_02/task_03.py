@@ -10,7 +10,7 @@ def encrypt_message(message, key_matrix):
     return encrypted_vector, eigenvalues, eigenvectors
 
 
-def decrypt_message(encrypted_vector, key_matrix, eigenvalues, eigenvectors):
+def decrypt_message(encrypted_vector, eigenvalues, eigenvectors):
 
                             #оберненої матриця власних векторів:
     inv_eigenvectors = np.linalg.inv(eigenvectors)
@@ -36,5 +36,5 @@ key_matrix = np.random.randint(0, 256, (len(message), len(message)))
 encrypted_vector, eigenvalues, eigenvectors = encrypt_message(message, key_matrix)
 print("Encrypted vector:", encrypted_vector)
 
-decrypted_message = decrypt_message(encrypted_vector, key_matrix, eigenvalues, eigenvectors)
+decrypted_message = decrypt_message(encrypted_vector, eigenvalues, eigenvectors)
 print("Decrypted message:", decrypted_message)
