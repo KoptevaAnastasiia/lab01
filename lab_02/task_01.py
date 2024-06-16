@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 
 
-
 def eigenvalues_eigenvectors (matrix) :
     eigenvalues, eigenvectors = np.linalg.eig(matrix)
     print("Власні значення матриці:" , eigenvalues)
